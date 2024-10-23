@@ -1,3 +1,3 @@
 class GlobalConstants {
-  static const String botToken = "7293449034:AAGVbU-lGslr6jkLyEI8I-c5tEOPcY88fr0";
+  static const String botToken = "7138294827:AAEJu29CD7vdXGYwNbHpwDIogCVLz8BE6Nk";
 }
