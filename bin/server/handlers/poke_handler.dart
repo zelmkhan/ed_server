@@ -8,6 +8,7 @@ Future<Response> pokeHandler(Request request) async {
   var payload = Payload.fromJson(request.url.queryParameters);
   
   if (!validation(payload.validationStructure(), payload.hash)) {
+    print('Data not from Telegram app');
     return Response.unauthorized('Data not from Telegram app');
   }
 

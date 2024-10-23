@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:hex/hex.dart';
 import '../global_constants.dart';
-// main - 6720574493:AAHre-5lbLHbFPbERbcXpMUSdUChFwq7klo
-// localtest - 5768337691:AAH5YkoiEuPk8-FZa32hStHTqXiLPtAEhx8
+
+
 bool validation(String payload, String hash) {
   var dataCheckString = payload;
   var hmacSecretKey = Hmac(sha256, utf8.encode('WebAppData'));
