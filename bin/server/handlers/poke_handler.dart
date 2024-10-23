@@ -36,6 +36,14 @@ Future<Response> pokeHandler(Request request) async {
     }}));
   }
 
+  if (lastEntry + 86400 <= timestamp) {
+    await PostgresCommands.pokeIn(username: payload.user.username, days: 1, lastEntry: timestamp);
+      return Response.ok(json.encode({'success': {
+      'days': 1,
+      'last_entry': timestamp
+    }}));
+  }
+
   var daysCounter = user['days'] + 1;
   var pockIn = await PostgresCommands.pokeIn(username: payload.user.username, days: daysCounter, lastEntry: timestamp);
 
