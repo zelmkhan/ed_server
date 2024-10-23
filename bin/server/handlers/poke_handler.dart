@@ -30,7 +30,10 @@ Future<Response> pokeHandler(Request request) async {
 
   var lastEntry = user['last_entry'];
   if (lastEntry + 86400 > timestamp) {
-    return Response.ok(json.encode({'error': 'Come back later'}));
+    return Response.ok(json.encode({'success': {
+      'days': user['days'],
+      'last_entry': user['last_entry']
+    }}));
   }
 
   var daysCounter = user['days'] + 1;
