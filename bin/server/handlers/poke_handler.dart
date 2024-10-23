@@ -33,7 +33,7 @@ Future<Response> pokeHandler(Request request) async {
     return Response.ok(json.encode({'error': 'Come back later'}));
   }
 
-  var daysCounter = user['last_entry'] + 1;
+  var daysCounter = user['days'] + 1;
   var pockIn = await PostgresCommands.pokeIn(username: payload.user.username, days: daysCounter, lastEntry: timestamp);
 
   if (!pockIn) {
