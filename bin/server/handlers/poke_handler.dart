@@ -2,15 +2,15 @@ import 'dart:convert';
 import 'package:shelf/shelf.dart';
 import '../../database/postgres_commands.dart';
 import '../../models/payload.dart';
-import '../../utils/validation.dart';
+import '../../security/validation.dart';
 
 Future<Response> pokeHandler(Request request) async {
   var payload = Payload.fromJson(request.url.queryParameters);
   
-  if (!validation(payload.validationStructure(), payload.hash)) {
-    print('Data not from Telegram app');
-    return Response.unauthorized('Data not from Telegram app');
-  }
+  // if (!validation(payload.validationStructure(), payload.hash)) {
+  //   print('Data not from Telegram app');
+  //   return Response.unauthorized('Data not from Telegram app');
+  // }
 
   var timestamp = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000;
 
