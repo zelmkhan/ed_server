@@ -19,7 +19,7 @@ void main() async {
 
   route.get('/', (_) => Response.ok('ED © 2024'));
 
-  route.post('/poke', pokeHandler);
+  route.get('/poke', pokeHandler);
 
 
   var handler = const Pipeline()
