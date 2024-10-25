@@ -22,7 +22,7 @@ void main() {
   });
 
   test('pock in', () async {
-    var response = await PostgresCommands.pokeIn(username: 'zelmkhan', days: 1, lastEntry: 1729687777);
+    var response = await PostgresCommands.pokeIn(username: 'zelmkhan', days: 1, lastEntry: 1729691141);
     print(response);
   });
 

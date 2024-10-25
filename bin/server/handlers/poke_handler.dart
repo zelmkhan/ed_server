@@ -17,7 +17,16 @@ Future<Response> pokeHandler(Request request) async {
   var user = await PostgresCommands.getUser(username: payload.user.username);
 
   if (user == null) {
-    var createUser = await PostgresCommands.createAccount(username: payload.user.username, lastEntry: timestamp);
+    var createUser;
+    
+    if (payload.ref != null) {
+      createUser = await PostgresCommands.createAccount(username: payload.user.username, lastEntry: timestamp);
+      var ref = await PostgresCommands.getUser(username: payload.ref!);
+      await PostgresCommands.pokeIn(username: payload.ref!, days: ref['days'] + 1, lastEntry: ref['last_entry']);
+    } else {
+      createUser = await PostgresCommands.createAccount(username: payload.user.username, lastEntry: timestamp);
+    }
+    
     if (createUser) {
       return Response.ok(json.encode({'success': {
         'days': 1,

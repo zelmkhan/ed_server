@@ -5,15 +5,17 @@ class Payload {
   final String? queryId;
   final User user;
   final String hash;
+  final String? ref;
 
-  Payload({required this.authDate, required this.queryId, required this.user, required this.hash});
+  Payload({required this.authDate, required this.queryId, required this.user, required this.hash, required this.ref});
 
   factory Payload.fromJson(Map<String, dynamic> json) {
     return Payload(
       authDate: json['auth_date'], 
       queryId: json['query_id'], 
       user: User.fromJson(jsonDecode(json['user'])),
-      hash: json['hash']
+      hash: json['hash'],
+      ref: json['ref']
     );
   }
 
