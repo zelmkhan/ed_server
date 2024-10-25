@@ -15,7 +15,7 @@ Future<Response> pokeHandler(Request request) async {
   var timestamp = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000;
 
   var user = await PostgresCommands.getUser(username: payload.user.username);
-
+  print(payload.ref);
   if (user == null) {
     var createUser;
     
